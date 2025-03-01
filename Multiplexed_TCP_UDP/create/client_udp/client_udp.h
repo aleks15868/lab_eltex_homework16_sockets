@@ -1,0 +1,22 @@
+#ifndef _CLIENT_UDP_H
+#define _CLIENT_UDP_H
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <unistd.h>
+#include <sys/socket.h>
+#include <arpa/inet.h>
+#include <errno.h>
+
+typedef struct{
+    int sign;
+    int message;
+}sign;
+
+#define PORT 8081
+
+#define error_func(a, error) do{if(-1 == a){ printf("Error %s\nline:%d\n",error, __LINE__); \
+                                        perror("error"); exit(EXIT_FAILURE);}} while(0)
+
+int connect_in_server(int, sign*);
+#endif
