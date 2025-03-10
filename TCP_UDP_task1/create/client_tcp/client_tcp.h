@@ -9,9 +9,13 @@
 #include <errno.h>
 
 
+/**
+ * @brief Структура сообщения
+ * 
+ */
 typedef struct{
-    int sign;
-    int message;
+    int sign;//номер сигнала(протокол)
+    int message;//Сообщение
 }sign;
 
 #define PORT 8080

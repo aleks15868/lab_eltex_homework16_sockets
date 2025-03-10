@@ -4,6 +4,11 @@
 struct sockaddr_in connected_client;
 int is_client_connected = 0; // Флаг: 0 - клиент не подключен, 1 - клиент подключен
 
+/**
+ * @brief Функция обработки сервер-клиент через UDP формат
+ * 
+ * @param arg [in] передача структуры phhread_fd в потоковую функцию
+ */
 void* communicate_with_client_udp(void* arg) {
     phhread_fd* fd_udp = (phhread_fd*)arg;
     int status;

@@ -1,6 +1,10 @@
 #include "server.h"
 
-
+/**
+ * @brief Функция обработки сервер-клиент через UDP формат
+ * 
+ * @param arg [in] передача структуры phhread_fd в потоковую функцию
+ */
 
 void* communicate_with_client_udp(void* arg) {
     struct sockaddr_in connected_client;

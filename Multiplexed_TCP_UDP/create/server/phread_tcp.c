@@ -1,5 +1,9 @@
 #include "server.h"
-
+/**
+ * @brief Функция обработки сервер-клиент через TCP формат
+ * 
+ * @param arg [in] передача дескриптера клиента в потоковую функцию
+ */
 void* communicate_with_client_tcp(void* arg) {
     int* client_fd_tcp = (int*)arg;
     int status;

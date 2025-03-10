@@ -20,7 +20,7 @@ int main() {
     sizeof(network_socket));
         error_func(status, "connect");
 
-    flag_close=connect_in_server(network_socket_fd, &buffer);
+    flag_close=connect_in_server(network_socket_fd, &buffer); //функция для поключения к серверу
     while (flag_close!=1)
     {
         printf("Введите сообщение:");

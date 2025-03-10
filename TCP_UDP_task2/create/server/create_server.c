@@ -1,5 +1,9 @@
 #include "server.h"
-
+/**
+ * @brief Функция обработки вызванных серверов в потоке в TCP или UDP формат
+ * 
+ * @param arg [in] аргумент фунгкции потока. Принимает индекс передующий главным сервером
+ */
 void* create_server(void* arg) 
 {
     int index = *(int*)arg;

@@ -1,6 +1,12 @@
 #include "client_udp.h"
 
-
+/**
+ * @brief Функция подключается несколько раз к серверу и проверяет, есть ли подключение или нет
+ * 
+ * @param socket_fd [in] файловый дексриптер
+ * @param buffer [in] буфер для отрпавки сообщений серверу
+ * @return положение flag для отлкючения цикла в main(1/0) 
+ */
 int connect_in_server(int* socket_fd, sign* buffer,struct sockaddr_in* sock){
     int status, new_port;
     int index;
