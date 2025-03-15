@@ -48,9 +48,9 @@ int main() {
     fd_serv = socket(AF_PACKET, SOCK_RAW, htons(ETH_P_ALL));
     error_func(fd_serv, "socket");
 
-    const char *interface_name = "lo";
-    uint8_t dest_mac[6] = {0x00, 0x00, 0x00, 0x00, 0x00, 0x00};
-    uint8_t src_mac[6] = {0x00, 0x00, 0x00, 0x00, 0x00, 0x00};
+    const char *interface_name = "enp4s0";
+    uint8_t dest_mac[6] = {0x08, 0x00, 0x27, 0x1f, 0x82, 0x15};  // MAC-адрес получателя
+    uint8_t src_mac[6] = {0x04, 0x7c, 0x16, 0xd1, 0x12, 0xac};   // MAC-адрес отправителя (enp4s0)
 
     serv.sll_family = AF_PACKET;
     serv.sll_protocol = htons(ETH_P_ALL);
@@ -77,12 +77,12 @@ int main() {
         head_ip->ip_hl = 5;
         head_ip->ip_v = 4;
         head_ip->ip_tos = 1;
-        head_ip->ip_id = htons(3);
+        head_ip->ip_id = htons(1);
         head_ip->ip_off = 0;
         head_ip->ip_ttl = 10;
         head_ip->ip_p = IPPROTO_UDP;
-        head_ip->ip_src.s_addr = inet_addr("127.0.0.3");
-        head_ip->ip_dst.s_addr = inet_addr("127.0.0.3");
+        head_ip->ip_src.s_addr = inet_addr("224.0.0.1");
+        head_ip->ip_dst.s_addr = inet_addr("224.0.0.2");
         head_ip->ip_len = htons(sizeof(struct ip) + sizeof(struct head_udp) + sizeof(int));
         head_ip->ip_sum = my_checksum(head_ip, sizeof(struct ip));
 

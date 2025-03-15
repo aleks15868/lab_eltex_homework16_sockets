@@ -40,7 +40,7 @@ int main() {
     error_func(fd_sock, "socket");
 
     serv.sin_family = AF_INET;
-    serv.sin_addr.s_addr = htonl(INADDR_ANY); // Принимать соединения на все интерфейсы
+    serv.sin_addr.s_addr = inet_addr("224.0.0.2"); // Принимать соединения на все интерфейсы
     serv.sin_port = htons(PORT);
 
     status = bind(fd_sock, (struct sockaddr *)&serv, sizeof(serv));
